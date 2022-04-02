@@ -50,6 +50,8 @@ async function loadByBreed(breed) {
 function createSlideshow(images) {
   images.forEach((imgUrl) => {
     const imgContainer = document.querySelector(".imgContainer");
-    imgContainer.innerHTML += '<img src="' + imgUrl + '" />';
+    const imge = (imgContainer.innerHTML +=
+      '<img src="' + imgUrl + '"loading="lazy" />');
+    console.log(imge);
   });
 }
