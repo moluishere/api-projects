@@ -17,7 +17,7 @@ function createBreedList(breedList) {
   const breed = document.getElementById("breed");
   breed.innerHTML = `
     <select id="theBreedName">
-          <option>選一種狗狗</option>
+          <option class>選一種狗狗</option>
           ${Object.keys(breedList) // 使用 Object.keys 取得物件key組成字串並回傳陣列
             .map(function (breed) {
               return `<option>${breed}</option>`;
@@ -26,6 +26,7 @@ function createBreedList(breedList) {
             .join("")} 
         </select>
     `;
+
   const theBreedName = document.querySelector("#theBreedName");
   theBreedName.addEventListener("change", (e) => {
     const slect = e.target.value;
@@ -51,7 +52,38 @@ function createSlideshow(images) {
   images.forEach((imgUrl) => {
     const imgContainer = document.querySelector(".imgContainer");
     const imge = (imgContainer.innerHTML +=
-      '<img src="' + imgUrl + '"loading="lazy" />');
-    console.log(imge);
+      '<div class="list-item" ><img src="' +
+      imgUrl +
+      '"loading="lazy" /></div>');
+    // console.log(imge);
+  });
+  pagination();
+}
+
+// const imge = (imgContainer.innerHTML +=
+//   '<div class="list-item" ><a href="' +
+//   imgUrl +
+//   '"><img src="' +
+//   imgUrl +
+//   '"loading="lazy" /></a></div>');
+
+function pagination() {
+  // 每個頁面要顯示幾張圖片(items)
+  const perPage = 20;
+  // 總共多少圖片(items)
+  let numPages = $(".list-item").length;
+
+  $(".list-item").slice(perPage).hide();
+
+  $("#pagination-container").pagination({
+    items: numPages,
+    itemsOnPage: perPage,
+    prev: "&laquo;",
+    next: "&raquo;",
+    onPageClick: function (pageNumber) {
+      let startPage = perPage * (pageNumber - 1);
+      let endPage = startPage + perPage;
+      $(".list-item").hide().slice(startPage, endPage).show();
+    },
   });
 }
