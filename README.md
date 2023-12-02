@@ -1,7 +1,10 @@
-# api_projects
 
-## Dog API 狗狗選單
+## Dog API 
 
-參考資料：[Dogs, JavaScript & An API 🐶 Fetch, Promises & Async Await](https://youtu.be/AVmGmLFcukM)
+reference：[Dogs, JavaScript & An API 🐶 Fetch, Promises & Async Await](https://youtu.be/AVmGmLFcukM)
 
-API 資源：[Dog API](https://dog.ceo/dog-api/)
+API：[Dog API](https://dog.ceo/dog-api/)
+
+## web page
+
+https://molu.in/api-projects/01_dog_api/index.html
